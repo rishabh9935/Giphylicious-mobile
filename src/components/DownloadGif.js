@@ -22,7 +22,6 @@ const DownloadGif = ({gifUrl}) => {
         const { status } = await Location.requestForegroundPermissionsAsync();
         if (status === "granted") {
             try {
-                alert("Downloaded!")
                 const asset = await MediaLibrary.createAssetAsync(fileUri);
                 const album = await MediaLibrary.getAlbumAsync('Download');
                 if (album == null) {

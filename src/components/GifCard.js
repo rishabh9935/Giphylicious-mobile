@@ -1,12 +1,12 @@
-import { StyleSheet, Text, View, Animated, TouchableOpacity, Linking, Button, useColorScheme } from 'react-native'
+import { StyleSheet, Text, View, Animated, TouchableOpacity, Linking, Button} from 'react-native'
 import React, { useState, useEffect, useContext } from 'react'
 import GifPlayer from 'react-native-gif'
 import DownloadGif from './DownloadGif'
-import themeContext from './themeContext'
-import theme from './theme'
+import ThemeContext from '../context/ThemeContext'
+import themestyle from './themestyle'
 
 const GifCard = ({gifUrl, title, from, imgUrl}) => {
-  const theme = useContext(themeContext);
+  const {theme} = useContext(ThemeContext)
   const [isPlaying, setIsPlaying] = useState(true);
 
   const handleTogglePlay = () => {
@@ -18,7 +18,7 @@ const GifCard = ({gifUrl, title, from, imgUrl}) => {
   }
 
   return (
-    <View style = {[styles.container, {backgroundColor: theme.backgroundColor}]}>
+    <View style = {[styles.container, {backgroundColor: themestyle[theme].background}]}>
       <TouchableOpacity activeOpacity={0.5} onPress={handleTogglePlay}>
         {isPlaying ? (
           <GifPlayer
@@ -34,7 +34,7 @@ const GifCard = ({gifUrl, title, from, imgUrl}) => {
         )}
        
       </TouchableOpacity>        
-      <Text style={{fontWeight:'bold', margin: 5, color: theme.color}} >{title} by {from}</Text>
+      <Text style={{fontWeight:'bold', margin: 5, color: themestyle[theme].color}} >{title} by {from}</Text>
       <TouchableOpacity onPress={() => shareToWhatsApp(`Please checkout this gif: ${gifUrl}`)}>
       <DownloadGif gifUrl = {gifUrl} />
       <Button

@@ -11,6 +11,7 @@
   "dependencies": {
     "@react-navigation/native": "^6.1.7",
     "@react-navigation/native-stack": "^6.9.13",
+    "dotenv": "^16.3.1",
     "expo": "~48.0.18",
     "expo-file-system": "~15.2.2",
     "expo-location": "^15.1.1",
@@ -20,7 +21,7 @@
     "moment": "^2.29.4",
     "react": "18.2.0",
     "react-native": "0.71.8",
-    "react-native-event-listeners": "^1.0.7",
+    "react-native-dotenv": "^3.4.9",
     "react-native-gif": "^1.0.3"
   },
   "devDependencies": {

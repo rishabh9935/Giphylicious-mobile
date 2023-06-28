@@ -1,12 +1,12 @@
 import {  View, TextInput } from 'react-native'
 import React, {useState} from 'react'
 import { AntDesign } from '@expo/vector-icons'; 
-import config from '../config';
+import { SEARCH_API_URL, API_KEY } from '@env';
 
 const SearchBar = ({setGif, getGif, setOffset}) => {
   const [search, setSearch] = useState('');
   const search_query = async() =>  {
-    await fetch(`https://api.giphy.com/v1/gifs/search?api_key=a5UryVYd2nzN7DDEq47XGAKgxKWjzFIP&q=${search}`)
+    await fetch(`${SEARCH_API_URL}?api_key=${API_KEY}&q=${search}`)
     .then(response => response.json())
     .then(responseJson => {
       setGif(responseJson.data);
@@ -14,7 +14,6 @@ const SearchBar = ({setGif, getGif, setOffset}) => {
       console.error(error);
     })
   }
-  // not working as expected
   const show_trending = async () => {
     await setGif([]);
     await setOffset(0);

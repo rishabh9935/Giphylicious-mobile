@@ -1,4 +1,4 @@
-const theme = {
+const themestyle = {
     light: {
         theme: 'light',
         color: "black",
@@ -11,4 +11,4 @@ const theme = {
     }
 }
 
-export default theme;
+export default themestyle;
